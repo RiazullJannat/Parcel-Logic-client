@@ -7,6 +7,7 @@ import Signin from "../components/pages/AuthPage/Signin";
 import SignUp from "@/components/pages/AuthPage/SignUp";
 import Dashboard from "@/Layout/Dashboard";
 import PrivateRouts from "@/private/PrivateRoute";
+import BookParcel from "@/components/Dashboard/User/BookParcel";
 
   const router = createBrowserRouter([
     {
@@ -28,10 +29,13 @@ import PrivateRouts from "@/private/PrivateRoute";
       ]
     },
     {
-      path:'/dashboard',
+      path:'dashboard',
       element:<PrivateRouts><Dashboard></Dashboard></PrivateRouts>,
       children:[
-        {},
+        {
+          path:'book-parcel',
+          element:<BookParcel></BookParcel>
+        },
       ]
     }
   ]);

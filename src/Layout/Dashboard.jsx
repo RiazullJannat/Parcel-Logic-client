@@ -1,14 +1,14 @@
 import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar"
 import { AppSidebar } from "@/components/app-sidebar"
+import { Outlet } from "react-router-dom"
  
-export default function Dashboard({ children }) {
+export default function Dashboard() {
   return (
     <SidebarProvider>
       <AppSidebar />
-      <main>
+      <main className="w-full">
         <SidebarTrigger />
-        {children}
-        <p>hi i</p>
+          <Outlet></Outlet>
       </main>
     </SidebarProvider>
   )

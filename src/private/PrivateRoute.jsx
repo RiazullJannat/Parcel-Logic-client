@@ -12,7 +12,7 @@ const PrivateRouts = ({children}) => {
     if(loading){
         return <Loading></Loading>
     }
-    return <Navigate to={'/login'} state={location.pathname}></Navigate>;
+    return <Navigate to={'/signin'} state={location.pathname}></Navigate>;
 };
 
 export default PrivateRouts;

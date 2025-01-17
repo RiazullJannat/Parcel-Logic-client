@@ -6,14 +6,16 @@ import { IoLogIn, IoLogOut, IoMenu } from 'react-icons/io5';
 import { GiArchiveRegister } from 'react-icons/gi';
 import useAuth from '@/Hooks/useAuth';
 const Navbar = () => {
-    const {user,logout} = useAuth();
+    const {user,logout, setLoading} = useAuth();
     const handleLogout = () => {
         logout()
         .then(()=>{
             console.log("logout successfully.")
+            setLoading(false)
         })
         .catch(error=>{
             console.log(error);
+            setLoading(false)
         })
     }
     const links =

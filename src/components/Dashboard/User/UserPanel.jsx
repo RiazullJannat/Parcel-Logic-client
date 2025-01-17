@@ -3,7 +3,7 @@ export const UserPanel = () => {
   const userPanel = [
     {
       title: "Book a Parcel",
-      url: "book-parcel",
+      url: "/dashboard/book-parcel",
       icon: Package, // Represents parcels or deliveries
     },
     {
