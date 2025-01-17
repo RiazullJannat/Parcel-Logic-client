@@ -1,31 +1,16 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
+import { ClipboardList, Star } from "lucide-react";
 export const DeliveryPanel = ()=>{
-    const deliveryPanel = [
-        {
-          title: "Home",
-          url: "#",
-          icon: Home,
-        },
-        {
-          title: "Inbox",
-          url: "#",
-          icon: Inbox,
-        },
-        {
-          title: "Calendar",
-          url: "#",
-          icon: Calendar,
-        },
-        {
-          title: "Search",
-          url: "#",
-          icon: Search,
-        },
-        {
-          title: "Settings",
-          url: "#",
-          icon: Settings,
-        },
-      ]
+  const deliveryPanel = [
+    {
+      title: "My Delivery List",
+      url: "my-delivery-list",
+      icon: ClipboardList, // Represents a list or task overview
+    },
+    {
+      title: "My Reviews",
+      url: "my-reviews",
+      icon: Star, // Represents ratings or reviews
+    },
+  ];
     return deliveryPanel
 }

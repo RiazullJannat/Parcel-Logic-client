@@ -1,31 +1,21 @@
-import { Calendar, Home, Inbox, Search, Settings } from "lucide-react"
-export const UserPanel = ()=>{
-    const userPanel = [
-        {
-          title: "Home",
-          url: "#",
-          icon: Home,
-        },
-        {
-          title: "Inbox",
-          url: "#",
-          icon: Inbox,
-        },
-        {
-          title: "Calendar",
-          url: "#",
-          icon: Calendar,
-        },
-        {
-          title: "Search",
-          url: "#",
-          icon: Search,
-        },
-        {
-          title: "Settings",
-          url: "#",
-          icon: Settings,
-        },
-      ]
-    return userPanel
+import { Package, List, User } from "lucide-react";
+export const UserPanel = () => {
+  const userPanel = [
+    {
+      title: "Book a Parcel",
+      url: "book-parcel",
+      icon: Package, // Represents parcels or deliveries
+    },
+    {
+      title: "My Parcels",
+      url: "my-parcels",
+      icon: List, // Represents a list of items
+    },
+    {
+      title: "My Profile",
+      url: "my-profile",
+      icon: User, // Represents a user or profile
+    },
+  ];
+  return userPanel
 }
