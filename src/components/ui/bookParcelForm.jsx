@@ -13,6 +13,7 @@ import { useForm } from "react-hook-form";
 import useAuth from "@/Hooks/useAuth";
 import { useEffect, useState } from "react";
 import useAxiosSecure from "@/Hooks/useAxiosSecure";
+import Swal from "sweetalert2";
 
 export function ParcelDeliveryForm({
     className,
@@ -20,20 +21,34 @@ export function ParcelDeliveryForm({
 }) {
     const [price, setPrice] = useState('');
     const { user } = useAuth();
-    const { register, handleSubmit, watch,setValue, formState: { errors } } = useForm();
+    const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm();
     const axiosSecure = useAxiosSecure();
 
     const onSubmit = async (data) => {
-        console.log(data);
-        const res = await axiosSecure.post('book-parcel',data);
-        console.log(res.data)
+        try {
+            data.status = 'pending'
+            const res = await axiosSecure.post('book-parcel', data);
+            if (res.data.insertedId) {
+                Swal.fire({
+                    title: "Great!",
+                    text: "You have booked successfully!",
+                    icon: "success"
+                });
+            }
+        } catch(error){
+            Swal.fire({
+                title: "OH Sorry!",
+                text: error.response?.data?.message || "something went wrong. Please try again later!",
+                icon: "error"
+            });
+        }
     };
     const parcelWeight = watch('parcelWeight')
     useEffect(() => {
         if (parcelWeight) {
             const parcelPrice = parcelWeight <= 1 ? 50 : parcelWeight <= 2 ? 100 : 150;
             setPrice(parcelPrice)
-            setValue('price',parcelPrice)
+            setValue('price', parcelPrice)
         }
     }, [parcelWeight, setValue])
     console.log(price)
@@ -103,7 +118,7 @@ export function ParcelDeliveryForm({
                             </div>
                             <div className="grid gap-2">
                                 <Label>Price </Label>
-                                <Input  value={`${price} TK`} readOnly />
+                                <Input value={`${price} TK`} readOnly />
                             </div>
                             <div className="grid gap-2">
                                 <Label htmlFor="receiverName">Receiver’s Name</Label>
