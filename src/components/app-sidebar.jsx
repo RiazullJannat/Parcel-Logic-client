@@ -18,11 +18,9 @@ import { AdminPanel } from "./Dashboard/Admin/AdminPanel";
 const userPanel = UserPanel();
 const deliveryPanel = DeliveryPanel();
 const adminPanel = AdminPanel();
-console.log(userPanel)
 export function AppSidebar() {
   const {role} = useRole();
   const [panel, setPanel] = useState([]);
-  console.log(role, "form role");
   useEffect(()=>{
     if(role==="user"){
       setPanel(userPanel)
@@ -34,7 +32,6 @@ export function AppSidebar() {
       setPanel(adminPanel)
     }
   },[role])
-  console.log("panel",panel)
 
   return (
     <Sidebar>

@@ -3,12 +3,12 @@ export const AdminPanel = () => {
   const adminPanel = [
     {
       title: "Statistics",
-      url: "statistics",
+      url: "dashboard/statistics",
       icon: BarChart2, // Represents data visualization or statistics
     },
     {
       title: "All Parcels",
-      url: "all-parcels",
+      url: "dashboard/all-parcels",
       icon: Package, // Represents parcels or packages
     },
     {

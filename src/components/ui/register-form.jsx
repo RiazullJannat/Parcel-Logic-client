@@ -33,8 +33,7 @@ export function RegisterForm({
     const { register, handleSubmit, setValue, formState: { errors }, } = useForm();
     const navigate = useNavigate();
     const onSubmit = async (data) => {
-        console.log(data)
-        const imgFile = { image: data.image[0] }
+        const imgFile = { image: data?.image[0] }
         const imgUpload = await axiosPublic.post(img_hosting_api, imgFile, {
             headers: {
                 'Content-Type': 'multipart/form-data'
@@ -45,7 +44,7 @@ export function RegisterForm({
                 .then((res) => {
                     update({
                         displayName: data.name,
-                        photoURL: imgUpload.data.data.display_url
+                        photoURL: imgUpload?.data?.data?.display_url
                     })
                         .then(() => {
                             const user = {

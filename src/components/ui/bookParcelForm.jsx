@@ -27,6 +27,7 @@ export function ParcelDeliveryForm({
     const onSubmit = async (data) => {
         try {
             data.status = 'pending'
+            data.bookingDate = new Date().toISOString().slice(0, 10);
             const res = await axiosSecure.post('book-parcel', data);
             if (res.data.insertedId) {
                 Swal.fire({

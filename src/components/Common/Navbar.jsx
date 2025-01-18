@@ -5,18 +5,20 @@ import { FaHome } from 'react-icons/fa';
 import { IoLogIn, IoLogOut, IoMenu } from 'react-icons/io5';
 import { GiArchiveRegister } from 'react-icons/gi';
 import useAuth from '@/Hooks/useAuth';
+import useRole from '@/Hooks/useRole';
 const Navbar = () => {
-    const {user,logout, setLoading} = useAuth();
+    const { role } = useRole();
+    const { user, logout, setLoading } = useAuth();
     const handleLogout = () => {
         logout()
-        .then(()=>{
-            console.log("logout successfully.")
-            setLoading(false)
-        })
-        .catch(error=>{
-            console.log(error);
-            setLoading(false)
-        })
+            .then(() => {
+                console.log("logout successfully.")
+                setLoading(false)
+            })
+            .catch(error => {
+                console.log(error);
+                setLoading(false)
+            })
     }
     const links =
         <>
@@ -24,7 +26,13 @@ const Navbar = () => {
                 <Link to={'/'}><FaHome /> Home</Link>
             </li>
             <li>
-                <Link to={'/dashboard'}><MdOutlineSpaceDashboard /> Dashboard</Link>
+                {
+                    role === 'user' ?
+                        <Link to={'/dashboard/my-parcels'}><MdOutlineSpaceDashboard /> Dashboard</Link> :
+                        role === 'admin' ?
+                            <Link to={'/dashboard/statistics'}><MdOutlineSpaceDashboard /> Dashboard</Link> :
+                            <Link to={'/dashboard/my-delivery-list'}><MdOutlineSpaceDashboard /> Dashboard</Link>
+                }
             </li>
             <li>
                 <Link><MdNotificationsActive />Notifications </Link>

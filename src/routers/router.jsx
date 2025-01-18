@@ -8,6 +8,11 @@ import SignUp from "@/components/pages/AuthPage/SignUp";
 import Dashboard from "@/Layout/Dashboard";
 import PrivateRouts from "@/private/PrivateRoute";
 import BookParcel from "@/components/Dashboard/User/BookParcel";
+import MyParcel from "@/components/Dashboard/User/MyParcel";
+import MyProfile from "@/components/Dashboard/User/MyProfile";
+import AdminRoute from "@/private/AdminRoute";
+import Statistics from "@/components/Dashboard/Admin/Statistics";
+import AllParcels from "@/components/Dashboard/Admin/AllParcels";
 
   const router = createBrowserRouter([
     {
@@ -36,6 +41,22 @@ import BookParcel from "@/components/Dashboard/User/BookParcel";
           path:'book-parcel',
           element:<BookParcel></BookParcel>
         },
+        {
+          path:'my-parcels',
+          element:<MyParcel></MyParcel>
+        },
+        {
+          path:'my-profile',
+          element:<MyProfile></MyProfile>
+        },
+        {
+          path:'statistics',
+          element:<AdminRoute><Statistics></Statistics></AdminRoute>
+        },
+        {
+          path:'all-parcels',
+          element:<AdminRoute><AllParcels></AllParcels></AdminRoute>
+        }
       ]
     }
   ]);
