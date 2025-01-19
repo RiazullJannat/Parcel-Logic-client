@@ -36,7 +36,7 @@ export function ParcelDeliveryForm({
                     icon: "success"
                 });
             }
-        } catch(error){
+        } catch (error) {
             Swal.fire({
                 title: "OH Sorry!",
                 text: error.response?.data?.message || "something went wrong. Please try again later!",
@@ -68,6 +68,7 @@ export function ParcelDeliveryForm({
                             <div className="grid gap-2">
                                 <Label htmlFor="name">Name</Label>
                                 <Input
+                                    {...register('name')}
                                     id="name"
                                     type="text"
                                     value={user?.displayName || ""}

@@ -31,7 +31,11 @@ const Navbar = () => {
                         <Link to={'/dashboard/my-parcels'}><MdOutlineSpaceDashboard /> Dashboard</Link> :
                         role === 'admin' ?
                             <Link to={'/dashboard/statistics'}><MdOutlineSpaceDashboard /> Dashboard</Link> :
-                            <Link to={'/dashboard/my-delivery-list'}><MdOutlineSpaceDashboard /> Dashboard</Link>
+                            role === 'delivery-man' ?
+                                <Link to={'/dashboard/my-delivery-list'}><MdOutlineSpaceDashboard /> Dashboard</Link> :
+                                <Link to={'/dashboard'}>
+                                    Dashboard
+                                </Link>
                 }
             </li>
             <li>
