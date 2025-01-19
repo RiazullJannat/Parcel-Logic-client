@@ -8,11 +8,12 @@ import SignUp from "@/components/pages/AuthPage/SignUp";
 import Dashboard from "@/Layout/Dashboard";
 import PrivateRouts from "@/private/PrivateRoute";
 import BookParcel from "@/components/Dashboard/User/BookParcel";
-import MyParcel from "@/components/Dashboard/User/MyParcel";
+import MyBookings from "@/components/Dashboard/User/MyBookings";
 import MyProfile from "@/components/Dashboard/User/MyProfile";
 import AdminRoute from "@/private/AdminRoute";
 import Statistics from "@/components/Dashboard/Admin/Statistics";
 import AllParcels from "@/components/Dashboard/Admin/AllParcels";
+import UpdateBooking from "@/components/Dashboard/User/UpdateBooking";
 
   const router = createBrowserRouter([
     {
@@ -39,11 +40,15 @@ import AllParcels from "@/components/Dashboard/Admin/AllParcels";
       children:[
         {
           path:'book-parcel',
-          element:<BookParcel></BookParcel>
+          element:<PrivateRouts><BookParcel></BookParcel></PrivateRouts>
         },
         {
           path:'my-parcels',
-          element:<MyParcel></MyParcel>
+          element:<MyBookings></MyBookings>
+        },
+        {
+          path:'my-parcels/update/:id',
+          element:<UpdateBooking></UpdateBooking>
         },
         {
           path:'my-profile',

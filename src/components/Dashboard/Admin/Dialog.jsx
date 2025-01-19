@@ -20,7 +20,8 @@ import {
 } from "@/components/ui/select"
 import { useQuery } from "@tanstack/react-query";
 import useAxiosSecure from "@/Hooks/useAxiosSecure";
-const Modal = ({bookingId}) => {
+import Swal from "sweetalert2";
+const Modal = ({ bookingId, refetch }) => {
     const axiosSecure = useAxiosSecure();
     const { register, handleSubmit, setValue, formState: { errors }, } = useForm();
     const { data: deliveryMenId = [] } = useQuery({
@@ -31,8 +32,17 @@ const Modal = ({bookingId}) => {
         }
     });
     const onSubmit = async (data) => {
-        console.log(data)
-        
+        data.status = 'On the way'
+        const res = await axiosSecure.patch(`/set-delivery-man/${bookingId}`, data)
+        if (res.data.modifiedCount) {
+            refetch();
+            Swal.fire({
+                title: "Good job!",
+                text: "You clicked the button!",
+                icon: "success"
+            });
+            return
+        }
 
     }
     return (
@@ -63,7 +73,7 @@ const Modal = ({bookingId}) => {
                                 {errors.approximateDate?.type === 'required' && <p className="text-red-600 font bold">Date is Required.</p>}
                             </div>
                             <div className="grid grid-cols-4 items-center gap-4">
-                                <Select onValueChange={(value) => setValue("deliveryMan", value)}>
+                                <Select onValueChange={(value) => setValue("deliveryManId", value)}>
                                     <SelectTrigger className="w-[180px]">
                                         <SelectValue placeholder="Delivery Man" />
                                     </SelectTrigger>

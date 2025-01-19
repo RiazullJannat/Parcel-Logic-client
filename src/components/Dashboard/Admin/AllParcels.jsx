@@ -14,7 +14,7 @@ import Modal from "./Dialog";
 
 const AllParcels = () => {
     const axiosSecure = useAxiosSecure();
-    const { data: allParcels = [] } = useQuery({
+    const { data: allParcels = [],refetch } = useQuery({
         queryKey: ['allParcels'],
         queryFn: async () => {
             const res = await axiosSecure('all-parcels')
@@ -46,7 +46,7 @@ const AllParcels = () => {
                                 <TableCell className="font-medium">{parcel?.deliveryDate}</TableCell>
                                 <TableCell className="text-right">{parcel?.price}TK</TableCell>
                                 <TableCell>{parcel?.status}</TableCell>
-                                <TableCell><Modal bookingId={parcel._id} ></Modal></TableCell>
+                                <TableCell><Modal bookingId={parcel._id} refetch={refetch}></Modal></TableCell>
                             </TableRow>)
                     }
                 </TableBody>
