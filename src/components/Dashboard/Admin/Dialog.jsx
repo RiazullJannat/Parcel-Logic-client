@@ -32,7 +32,7 @@ const Modal = ({ bookingId, refetch }) => {
         }
     });
     const onSubmit = async (data) => {
-        data.status = 'On the way'
+        data.status = 'on the way'
         const res = await axiosSecure.patch(`/set-delivery-man/${bookingId}`, data)
         if (res.data.modifiedCount) {
             refetch();

@@ -14,7 +14,7 @@ import { useForm } from "react-hook-form";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import useAuth from "@/Hooks/useAuth";
 import useAxiosSecure from "@/Hooks/useAxiosSecure";
-const ReviewModal = ({ deliveryManId }) => {
+const ReviewModal = ({ deliveryManId, status }) => {
     const axiosSecure = useAxiosSecure();
     const { user, Toast } = useAuth();
     const { register, handleSubmit, formState: { errors }, } = useForm();
@@ -36,7 +36,7 @@ const ReviewModal = ({ deliveryManId }) => {
         <div>
             <Dialog>
                 <DialogTrigger asChild>
-                    <Button variant="outline">Review</Button>
+                    <Button variant="outline" disabled={status!=='delivered'}>Review</Button>
                 </DialogTrigger>
                 <DialogContent className="sm:max-w-[425px]">
                     <DialogHeader>

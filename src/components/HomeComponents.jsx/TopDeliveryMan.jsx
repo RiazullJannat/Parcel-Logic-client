@@ -1,44 +1,35 @@
+import useAxiosPublic from "@/Hooks/useAxiosPublic";
+import { useQuery } from "@tanstack/react-query";
+
 const TopDeliveryMan = () => {
-    const deliveryMen = [
-        {
-            name: "John Smith",
-            image: "https://i.ibb.co.com/K0tVtjb/deliveryman3.jpg",
-            parcelsDelivered: 120, // This would be fetched from the database
-            averageRating: 4.8,   // Calculated from database reviews
-        },
-        {
-            name: "Michael Johnson",
-            image: "https://i.ibb.co.com/5sMZ8j4/deliveryman2.jpg",
-            parcelsDelivered: 95, // This would be fetched from the database
-            averageRating: 4.5,   // Calculated from database reviews
-        },
-        {
-            name: "David Williams",
-            image: "https://i.ibb.co.com/Dz9m7Vg/deliveryman1.jpg",
-            parcelsDelivered: 130, // This would be fetched from the database
-            averageRating: 4.9,    // Calculated from database reviews
-        },
-    ];
+    const axiosPublic = useAxiosPublic();
+    const {data:deliveryMen=[]}=useQuery({
+        queryKey:['deliveryMen'],
+        queryFn:async()=>{
+            const res = await axiosPublic('/top-delivery-stat')
+            return res.data
+        }
+    })
 
     return (
+        
         <div className="container mx-auto py-12 grid md:grid-cols-3 gap-5">
             {
-                deliveryMen.map((man, ind) => (
-                    <div key={ind} className="card bg-base-100  shadow-xl">
+                deliveryMen.map((man) => (
+                    <div key={man._id} className="card bg-base-100  shadow-xl">
                         <figure>
                             <img
                                 src={man.image}
-                                alt="Shoes" />
+                                alt={man.name} />
                         </figure>
                         <div className="card-body">
                             <h2 className="card-title">
-                                Shoes!
-                                <div className="badge badge-secondary">NEW</div>
+                                {man.name}
+                                <div className="badge badge-secondary">{man.averageRating}</div>
                             </h2>
-                            <p>If a dog chews shoes whose shoes does he choose?</p>
                             <div className="card-actions justify-end">
-                                <div className="badge badge-outline">Fashion</div>
-                                <div className="badge badge-outline">Products</div>
+                                <div className="badge badge-outline">Avg Rating: {man.averageRating}</div>
+                                <div className="badge badge-outline">Total delivery: {man.totalDelivered}</div>
                             </div>
                         </div>
                     </div>

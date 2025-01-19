@@ -23,6 +23,9 @@ const AllParcels = () => {
     })
     return (
         <div>
+            <div>
+                
+            </div>
             <Table>
                 <TableCaption>A list of your recent invoices.</TableCaption>
                 <TableHeader>
