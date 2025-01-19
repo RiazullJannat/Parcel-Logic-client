@@ -13,7 +13,7 @@ import { useEffect, useState } from "react";
 import useAxiosSecure from "@/Hooks/useAxiosSecure";
 import Swal from "sweetalert2";
 import { Button } from "@/components/ui/button";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 const UpdateBooking = ({ className, ...props }) => {
     const { register, handleSubmit, watch, setValue, formState: { errors } } = useForm();
     const axiosSecure = useAxiosSecure();
@@ -23,22 +23,22 @@ const UpdateBooking = ({ className, ...props }) => {
 
     const onSubmit = async (data) => {
         console.log(data);
-        // try {
-        //     const res = await axiosSecure.post('book-parcel', data);
-        //     if (res.data.insertedId) {
-        //         Swal.fire({
-        //             title: "Great!",
-        //             text: "You have booked successfully!",
-        //             icon: "success"
-        //         });
-        //     }
-        // } catch (error) {
-        //     Swal.fire({
-        //         title: "OH Sorry!",
-        //         text: error.response?.data?.message || "something went wrong. Please try again later!",
-        //         icon: "error"
-        //     });
-        // }
+        try {
+            const res = await axiosSecure.patch(`/update-booking/${bookingDetails._id}`, data);
+            if (res.data.modifiedCount) {
+                Swal.fire({
+                    title: "Great!",
+                    text: "You have updated successfully!",
+                    icon: "success"
+                });
+            }
+        } catch (error) {
+            Swal.fire({
+                title: "OH Sorry!",
+                text: error.response?.data?.message || "something went wrong. Please try again later!",
+                icon: "error"
+            });
+        }
     };
     const parcelWeight = watch('parcelWeight')
     useEffect(() => {
