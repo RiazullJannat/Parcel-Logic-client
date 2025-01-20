@@ -15,6 +15,7 @@ import Statistics from "@/components/Dashboard/Admin/Statistics";
 import AllParcels from "@/components/Dashboard/Admin/AllParcels";
 import UpdateBooking from "@/components/Dashboard/User/UpdateBooking";
 import AllUsers from "@/components/Dashboard/Admin/AllUsers";
+import AllDeliverymen from "@/components/Dashboard/Admin/AllDeliverymen";
 
   const router = createBrowserRouter([
     {
@@ -66,6 +67,10 @@ import AllUsers from "@/components/Dashboard/Admin/AllUsers";
         {
           path:'all-users',
           element:<AdminRoute><AllUsers></AllUsers></AdminRoute>
+        },
+        {
+          path:'all-deliverymen',
+          element:<AdminRoute><AllDeliverymen></AllDeliverymen></AdminRoute>
         }
       ]
     }

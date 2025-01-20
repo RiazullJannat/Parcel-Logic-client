@@ -18,7 +18,7 @@ export const AdminPanel = () => {
     },
     {
       title: "All Delivery Men",
-      url: "all-delivery-men",
+      url: "all-deliverymen",
       icon: Truck, 
     },
 
