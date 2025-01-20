@@ -51,7 +51,7 @@ export function RegisterForm({
                                 email: data.email,
                                 name: data.name,
                                 role: data.role,
-                                photoURL:imgUpload.data.data.display_url
+                                photoURL: imgUpload.data.data.display_url
                             }
                             setUser(res.user)
                             axiosPublic.post('/add-user', user)

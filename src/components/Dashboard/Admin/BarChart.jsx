@@ -1,18 +1,22 @@
 import useAxiosSecure from "@/Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
+import { useState } from "react";
 import ReactApexChart from "react-apexcharts";
 
 const BarChart = () => {
+    const [statData, setStatData]=useState([]);
     const axiosSecure = useAxiosSecure();
-    const {data:statData=[]} = useQuery({
+    const {data} = useQuery({
         queryKey:['statData'],
         queryFn:async()=>{
             const res = await axiosSecure('/bookings-data');
+            setStatData(res.data);
             return res.data
         }
     })
-    const dates = statData.map(item=>item.date);
-    const counts = statData.map(item=>item.count);
+    console.log(statData);
+    const dates = statData?.map(item=>item.date);
+    const counts = statData?.map(item=>item.count);
     console.log(dates,counts);
     const state = {
         series: [{
