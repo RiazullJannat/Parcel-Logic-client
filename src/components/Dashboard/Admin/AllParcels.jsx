@@ -19,17 +19,20 @@ import { Label } from "@/components/ui/label";
 
 
 const AllParcels = () => {
-    const { register, handleSubmit, formState: { errors } } = useForm()
-    const [searchDate, setSearchDate] = useState();
+    const { register, handleSubmit, formState: { errors } } = useForm({})
+    const [searchData, setSearchData] = useState({});
     const axiosSecure = useAxiosSecure();
     const { data: allParcels = [], refetch } = useQuery({
-        queryKey: ['allParcels'],
+        queryKey: ['allParcels',searchData],
         queryFn: async () => {
-            const res = await axiosSecure('all-parcels')
+            const res = await axiosSecure('all-parcels',{params:{searchData:searchData}})
             return res.data
         }
     })
-    const onSubmit = (data) => console.log(data)
+    const onSubmit = (data) =>{
+        setSearchData(data)
+        console.log(data);
+    }
     return (
         <div>
             <div>
@@ -38,7 +41,7 @@ const AllParcels = () => {
                         <div className="grid gap-2">
                             <Label htmlFor="fromDate">From</Label>
                             <Input
-                                {...register('formDate', { required: true })}
+                                {...register('fromDate', { required: true })}
                                 id="fromDate"
                                 type="date"
                                 required

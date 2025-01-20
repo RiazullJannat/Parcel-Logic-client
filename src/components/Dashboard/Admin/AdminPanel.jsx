@@ -4,22 +4,22 @@ export const AdminPanel = () => {
     {
       title: "Statistics",
       url: "/dashboard/statistics",
-      icon: BarChart2, // Represents data visualization or statistics
+      icon: BarChart2, 
     },
     {
       title: "All Parcels",
       url: "/dashboard/all-parcels",
-      icon: Package, // Represents parcels or packages
+      icon: Package, 
     },
     {
       title: "All Users",
       url: "all-users",
-      icon: Users, // Represents a group of users
+      icon: Users, 
     },
     {
       title: "All Delivery Men",
       url: "all-delivery-men",
-      icon: Truck, // Represents delivery personnel or vehicles
+      icon: Truck, 
     },
 
   ];
