@@ -11,20 +11,55 @@ import {
 import useAxiosSecure from "@/Hooks/useAxiosSecure";
 import { useQuery } from "@tanstack/react-query";
 import Modal from "./Dialog";
+import { useForm } from "react-hook-form";
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+
 
 const AllParcels = () => {
+    const { register, handleSubmit, formState: { errors } } = useForm()
+    const [searchDate, setSearchDate] = useState();
     const axiosSecure = useAxiosSecure();
-    const { data: allParcels = [],refetch } = useQuery({
+    const { data: allParcels = [], refetch } = useQuery({
         queryKey: ['allParcels'],
         queryFn: async () => {
             const res = await axiosSecure('all-parcels')
             return res.data
         }
     })
+    const onSubmit = (data) => console.log(data)
     return (
         <div>
             <div>
-                
+                <form onSubmit={handleSubmit(onSubmit)} className="my-8" >
+                    <div className="grid grid-cols-2  gap-2 my-2" >
+                        <div className="grid gap-2">
+                            <Label htmlFor="fromDate">From</Label>
+                            <Input
+                                {...register('formDate', { required: true })}
+                                id="fromDate"
+                                type="date"
+                                required
+                            />
+                            {errors.fromDate && <p className="text-red-600 font-bold">Date is Required.</p>}
+                        </div>
+                        <div className="grid gap-2">
+                            <Label htmlFor="toDate">To</Label>
+                            <Input
+                                {...register('toDate', { required: true })}
+                                id="toDate"
+                                type="date"
+                                required
+                            />
+                            {errors.toDate && <p className="text-red-600 font-bold"> Date is Required.</p>}
+                        </div>
+                    </div>
+                    <Button type="submit" className="w-full">
+                        search
+                    </Button>
+                </form>
             </div>
             <Table>
                 <TableCaption>A list of your recent invoices.</TableCaption>
