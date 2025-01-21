@@ -7,6 +7,11 @@ export const AdminPanel = () => {
       icon: BarChart2, 
     },
     {
+      title: "Statistics",
+      url: "/dashboard/statistics",
+      icon: BarChart2, 
+    },
+    {
       title: "All Parcels",
       url: "/dashboard/all-parcels",
       icon: Package, 
