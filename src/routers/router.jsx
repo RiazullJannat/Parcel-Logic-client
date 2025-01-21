@@ -16,6 +16,7 @@ import AllParcels from "@/components/Dashboard/Admin/AllParcels";
 import UpdateBooking from "@/components/Dashboard/User/UpdateBooking";
 import AllUsers from "@/components/Dashboard/Admin/AllUsers";
 import AllDeliverymen from "@/components/Dashboard/Admin/AllDeliverymen";
+import MyDeliveryList from "@/components/Dashboard/DeliveryMan/MyDeliveryList";
 
   const router = createBrowserRouter([
     {
@@ -71,6 +72,10 @@ import AllDeliverymen from "@/components/Dashboard/Admin/AllDeliverymen";
         {
           path:'all-deliverymen',
           element:<AdminRoute><AllDeliverymen></AllDeliverymen></AdminRoute>
+        },
+        {
+          path:'my-delivery-list',
+          element:<MyDeliveryList></MyDeliveryList>
         }
       ]
     }
