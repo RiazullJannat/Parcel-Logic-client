@@ -17,6 +17,8 @@ import UpdateBooking from "@/components/Dashboard/User/UpdateBooking";
 import AllUsers from "@/components/Dashboard/Admin/AllUsers";
 import AllDeliverymen from "@/components/Dashboard/Admin/AllDeliverymen";
 import MyDeliveryList from "@/components/Dashboard/DeliveryMan/MyDeliveryList";
+import DeliveryRoute from "@/private/DeliveryRoute";
+import MyReviews from "@/components/Dashboard/DeliveryMan/MyReviews";
 
   const router = createBrowserRouter([
     {
@@ -75,7 +77,11 @@ import MyDeliveryList from "@/components/Dashboard/DeliveryMan/MyDeliveryList";
         },
         {
           path:'my-delivery-list',
-          element:<MyDeliveryList></MyDeliveryList>
+          element:<DeliveryRoute><MyDeliveryList></MyDeliveryList></DeliveryRoute>
+        },
+        {
+          path:'my-reviews',
+          element:<DeliveryRoute><MyReviews></MyReviews></DeliveryRoute>
         }
       ]
     }
