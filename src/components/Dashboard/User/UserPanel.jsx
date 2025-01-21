@@ -1,6 +1,11 @@
-import { Package, List, User } from "lucide-react";
+import { Package, List, User, Home } from "lucide-react";
 export const UserPanel = () => {
   const userPanel = [
+    {
+      title: "Home",
+      url: "/",
+      icon: Home, 
+    },
     {
       title: "My Parcels",
       url: "/dashboard/my-parcels",

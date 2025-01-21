@@ -1,6 +1,11 @@
-import { ClipboardList, Star } from "lucide-react";
+import { ClipboardList, Star, Home } from "lucide-react";
 export const DeliveryPanel = ()=>{
   const deliveryPanel = [
+    {
+      title: "Home",
+      url: "/",
+      icon: Home, 
+    },
     {
       title: "My Delivery List",
       url: "my-delivery-list",

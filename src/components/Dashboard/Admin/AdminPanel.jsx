@@ -1,10 +1,10 @@
-import { Package, Users, Truck, BarChart2 } from "lucide-react";
+import { Package, Users, Truck, BarChart2, Home } from "lucide-react";
 export const AdminPanel = () => {
   const adminPanel = [
     {
-      title: "Statistics",
-      url: "/dashboard/statistics",
-      icon: BarChart2, 
+      title: "Home",
+      url: "/",
+      icon: Home, 
     },
     {
       title: "Statistics",

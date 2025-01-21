@@ -109,7 +109,7 @@ const MyBookings = () => {
                                 <TableCell className="font-medium">{parcel?.deliveryManId}</TableCell>
                                 <TableCell className="font-medium">{parcel?.status}</TableCell>
                                 <TableCell className="font-medium">
-                                    <Button variant="outline">Pay</Button>
+                                    <Button variant="outline"><Link>Pay</Link></Button>
                                 </TableCell>
                                 <TableCell className="font-medium">
                                     <div >

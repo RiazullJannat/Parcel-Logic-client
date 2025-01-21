@@ -13,7 +13,7 @@ const LocationModal = ({ latitude, longitude }) => {
     const position = [latitude, longitude]
     return (
         <Dialog>
-            <DialogTrigger>Open</DialogTrigger>
+            <DialogTrigger>See Location</DialogTrigger>
             <DialogContent>
                 <DialogHeader>
                     <DialogTitle>Are you absolutely sure?</DialogTitle>
@@ -22,7 +22,7 @@ const LocationModal = ({ latitude, longitude }) => {
                         and remove your data from our servers.
                     </DialogDescription>
                 </DialogHeader>
-                <div className="h-96 w-96">
+                <div className="h-80">
                     <MapContainer
                         center={position}
                         zoom={13}

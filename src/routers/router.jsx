@@ -19,6 +19,7 @@ import AllDeliverymen from "@/components/Dashboard/Admin/AllDeliverymen";
 import MyDeliveryList from "@/components/Dashboard/DeliveryMan/MyDeliveryList";
 import DeliveryRoute from "@/private/DeliveryRoute";
 import MyReviews from "@/components/Dashboard/DeliveryMan/MyReviews";
+import Payment from "@/components/Dashboard/User/Payment";
 
   const router = createBrowserRouter([
     {
@@ -43,22 +44,28 @@ import MyReviews from "@/components/Dashboard/DeliveryMan/MyReviews";
       path:'dashboard',
       element:<PrivateRouts><Dashboard></Dashboard></PrivateRouts>,
       children:[
+        // general users routes
         {
-          path:'book-parcel',
-          element:<PrivateRouts><BookParcel></BookParcel></PrivateRouts>
+          path: 'book-parcel',
+          element: <PrivateRouts><BookParcel /></PrivateRouts>
         },
         {
-          path:'my-parcels',
-          element:<MyBookings></MyBookings>
+          path: 'my-parcels',
+          element: <PrivateRouts><MyBookings /></PrivateRouts>
         },
         {
-          path:'my-parcels/update/:id',
-          element:<UpdateBooking></UpdateBooking>
+          path: 'my-parcels/update/:id',
+          element: <PrivateRouts><UpdateBooking /></PrivateRouts>
         },
         {
-          path:'my-profile',
-          element:<MyProfile></MyProfile>
+          path: 'payment',
+          element: <PrivateRouts><Payment /></PrivateRouts>
         },
+        {
+          path: 'my-profile',
+          element: <PrivateRouts><MyProfile /></PrivateRouts>
+        },
+        // admin routes
         {
           path:'statistics',
           element:<AdminRoute><Statistics></Statistics></AdminRoute>
@@ -75,6 +82,7 @@ import MyReviews from "@/components/Dashboard/DeliveryMan/MyReviews";
           path:'all-deliverymen',
           element:<AdminRoute><AllDeliverymen></AllDeliverymen></AdminRoute>
         },
+        // deliveryman routes
         {
           path:'my-delivery-list',
           element:<DeliveryRoute><MyDeliveryList></MyDeliveryList></DeliveryRoute>
