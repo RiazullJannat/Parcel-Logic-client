@@ -3,7 +3,7 @@ import useAuth from "./useAuth";
 import { Navigate } from "react-router-dom";
 
 export const axiosSecure = axios.create({
-    baseURL:"http://localhost:5000"
+    baseURL:"https://parcel-logic-server.vercel.app"
 })
 const useAxiosSecure = () => {
     const {logout} = useAuth();
