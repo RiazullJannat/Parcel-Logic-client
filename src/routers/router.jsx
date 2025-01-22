@@ -65,7 +65,7 @@ import PaymentSuccess from "@/components/Dashboard/User/PaymentSuccess";
         },
         {
           path:'my-parcels/payment/:id/payment-success',
-          element:<PaymentSuccess></PaymentSuccess>
+          element:<PrivateRouts><PaymentSuccess/></PrivateRouts>
         },
         {
           path: 'my-profile',
