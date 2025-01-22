@@ -20,6 +20,7 @@ import MyDeliveryList from "@/components/Dashboard/DeliveryMan/MyDeliveryList";
 import DeliveryRoute from "@/private/DeliveryRoute";
 import MyReviews from "@/components/Dashboard/DeliveryMan/MyReviews";
 import Payment from "@/components/Dashboard/User/Payment";
+import ErrorPage from "@/components/Common/ErrorPage";
 
   const router = createBrowserRouter([
     {
@@ -58,7 +59,7 @@ import Payment from "@/components/Dashboard/User/Payment";
           element: <PrivateRouts><UpdateBooking /></PrivateRouts>
         },
         {
-          path: 'payment',
+          path: 'my-parcels/payment/:id',
           element: <PrivateRouts><Payment /></PrivateRouts>
         },
         {
@@ -92,6 +93,10 @@ import Payment from "@/components/Dashboard/User/Payment";
           element:<DeliveryRoute><MyReviews></MyReviews></DeliveryRoute>
         }
       ]
+    },
+    {
+      path:"*",
+      element:<ErrorPage></ErrorPage>
     }
   ]);
 
