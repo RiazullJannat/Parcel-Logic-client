@@ -21,6 +21,7 @@ import DeliveryRoute from "@/private/DeliveryRoute";
 import MyReviews from "@/components/Dashboard/DeliveryMan/MyReviews";
 import Payment from "@/components/Dashboard/User/Payment";
 import ErrorPage from "@/components/Common/ErrorPage";
+import PaymentSuccess from "@/components/Dashboard/User/PaymentSuccess";
 
   const router = createBrowserRouter([
     {
@@ -61,6 +62,10 @@ import ErrorPage from "@/components/Common/ErrorPage";
         {
           path: 'my-parcels/payment/:id',
           element: <PrivateRouts><Payment /></PrivateRouts>
+        },
+        {
+          path:'my-parcels/payment/:id/payment-success',
+          element:<PaymentSuccess></PaymentSuccess>
         },
         {
           path: 'my-profile',

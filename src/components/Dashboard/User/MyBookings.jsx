@@ -23,7 +23,7 @@ const MyBookings = () => {
     const { data: myBookings = [], isLoading, isError, error, refetch } = useQuery({
         queryKey: ['myParcels', user.email, sort],
         queryFn: async () => {
-            const { data } = await axiosSecure('/my-parcels', { params: { email: user.email, sort:sort } });
+            const { data } = await axiosSecure('/my-parcels', { params: { email: user.email, sort: sort } });
             return data
         }
     })
@@ -109,7 +109,14 @@ const MyBookings = () => {
                                 <TableCell className="font-medium">{parcel?.deliveryManId}</TableCell>
                                 <TableCell className="font-medium">{parcel?.status}</TableCell>
                                 <TableCell className="font-medium">
-                                    <Button variant="outline"><Link to={`/dashboard/my-parcels/payment/${parcel._id}`}>Pay</Link></Button>
+                                    <Button variant="outline">
+                                        <Link
+                                            to={`/dashboard/my-parcels/payment/${parcel._id}`}
+                                            state={parcel.price}
+                                        >
+                                            Pay
+                                        </Link>
+                                    </Button>
                                 </TableCell>
                                 <TableCell className="font-medium">
                                     <div >
