@@ -1,3 +1,4 @@
+import { Button } from "@/components/ui/button";
 import useAuth from "@/Hooks/useAuth";
 import { axiosSecure } from "@/Hooks/useAxiosSecure";
 
@@ -13,12 +14,12 @@ const SSLPayment = ({ price, id }) => {
             status:'pending',
         }
         const response = await axiosSecure.post('create-payment-ssl',payment)
-        console.log(response.data);
+        console.log(response?.data);
 
     }
     return (
         <div className="text-red-600 font-bold">
-                ssl payment method
+                <Button onClick={handleSSLpayment}>button</Button>
         </div>
     );
 };
