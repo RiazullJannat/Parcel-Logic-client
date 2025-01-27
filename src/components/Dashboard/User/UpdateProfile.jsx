@@ -25,7 +25,6 @@ const UpdateProfile = ({currentUser,refetch}) => {
     const img_hosting_api = `https://api.imgbb.com/1/upload?key=${import.meta.env.VITE_image_bb_api}`
     const { update } = useAuth();
     
-    console.log(currentUser, "from data")
     const onSubmit = async (data) => {
         const imgFile = { image: data?.image[0] }
         const imgUpload = await axiosPublic.post(img_hosting_api, imgFile, {

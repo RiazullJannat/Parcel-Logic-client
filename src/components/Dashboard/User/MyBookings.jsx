@@ -15,6 +15,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import { toast } from "react-toastify";
 
 const MyBookings = () => {
     const axiosSecure = useAxiosSecure();
@@ -31,7 +32,7 @@ const MyBookings = () => {
         return <Loading></Loading>
     }
     if (isError) {
-        console.log(error)
+        toast.error(error)
     }
     const handleCancel = (id) => {
         Swal.fire({

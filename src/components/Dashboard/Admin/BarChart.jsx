@@ -14,10 +14,8 @@ const BarChart = () => {
             return res.data
         }
     })
-    console.log(statData);
     const dates = statData?.map(item=>item.date);
     const counts = statData?.map(item=>item.count);
-    console.log(dates,counts);
     const state = {
         series: [{
             data: counts

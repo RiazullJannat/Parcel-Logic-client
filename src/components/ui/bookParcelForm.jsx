@@ -52,7 +52,6 @@ export function ParcelDeliveryForm({
             setValue('price', parcelPrice)
         }
     }, [parcelWeight, setValue])
-    console.log(price)
     return (
         <div className={cn("flex flex-col gap-6 md:w-[60%]", className)} {...props}>
             <Card>

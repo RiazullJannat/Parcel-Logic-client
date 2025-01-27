@@ -21,6 +21,7 @@ import {
     SelectTrigger,
     SelectValue,
 } from "@/components/ui/select"
+import { toast } from "react-toastify"
 
 export function RegisterForm({
     className,
@@ -65,9 +66,9 @@ export function RegisterForm({
                                     }
                                 })
                         })
-                        .catch(error => console.log(error.message))
+                        .catch(error => toast.error(error.message))
                 })
-                .catch(error => console.log(error.message))
+                .catch(error =>toast.error(error.message))
         }
 
     };

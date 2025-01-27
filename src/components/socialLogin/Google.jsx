@@ -2,6 +2,7 @@ import useAuth from "@/Hooks/useAuth";
 import useAxiosPublic from "@/Hooks/useAxiosPublic";
 import { FaGoogle } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const Google = () => {
     const {googleLogin, setLoading, Toast} = useAuth();
@@ -42,7 +43,7 @@ const Google = () => {
             })
         })
         .catch(err=>{
-            console.log(err.message)
+            toast.error(err.message)
         })
     }
     return (

@@ -31,7 +31,6 @@ const AllParcels = () => {
     })
     const onSubmit = (data) =>{
         setSearchData(data)
-        console.log(data);
     }
     return (
         <div>

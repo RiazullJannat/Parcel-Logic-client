@@ -22,7 +22,6 @@ const ReviewModal = ({ deliveryManId, status }) => {
         data.reviewGiverName = user.displayName;
         data.reviewGiverImage = user.photoURL;
         data.date = new Date().toLocaleDateString('en-US')
-        console.log(data);
         const res = await axiosSecure.post('/review', data)
         if (res.data.insertedId) {
             Toast.fire({

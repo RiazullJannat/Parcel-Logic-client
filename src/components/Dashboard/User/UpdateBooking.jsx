@@ -22,7 +22,6 @@ const UpdateBooking = ({ className, ...props }) => {
     const [price, setPrice] = useState(bookingDetails.price);
 
     const onSubmit = async (data) => {
-        console.log(data);
         try {
             const res = await axiosSecure.patch(`/update-booking/${bookingDetails._id}`, data);
             if (res.data.modifiedCount) {

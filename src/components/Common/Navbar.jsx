@@ -6,17 +6,18 @@ import { IoLogIn, IoLogOut, IoMenu } from 'react-icons/io5';
 import { GiArchiveRegister } from 'react-icons/gi';
 import useAuth from '@/Hooks/useAuth';
 import useRole from '@/Hooks/useRole';
+import { toast } from 'react-toastify';
 const Navbar = () => {
     const { role } = useRole();
-    const { user, logout, setLoading } = useAuth();
+    const { user, logout, setLoading, } = useAuth();
     const handleLogout = () => {
         logout()
             .then(() => {
-                console.log("logout successfully.")
+                toast.success("logout successfully.")
                 setLoading(false)
             })
             .catch(error => {
-                console.log(error);
+                toast.error(error);
                 setLoading(false)
             })
     }

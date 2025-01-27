@@ -21,7 +21,6 @@ export function LoginForm({
   const navigate = useNavigate();
   const { register, handleSubmit, formState: { errors }, } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
     login(data.email, data.password)
     .then((res)=>{
       setUser(res.user)

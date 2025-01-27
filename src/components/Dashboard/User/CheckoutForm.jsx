@@ -3,6 +3,7 @@ import useAxiosSecure from "@/Hooks/useAxiosSecure";
 import { CardElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const CheckoutForm = ({ price, id }) => {
     const stripe = useStripe();
@@ -15,11 +16,10 @@ const CheckoutForm = ({ price, id }) => {
     useEffect(() => {
         axiosSecure.post('/create-payment-intent', { price })
         .then(res=>{
-            console.log(res.data.clientSecret);
             setClientSecret(res.data.clientSecret);
         })
         .catch(error=>{
-            console.log(error);
+            toast.error(error);
         })
     }, [axiosSecure, price])
     const handleSubmit = async (event) => {
@@ -28,7 +28,6 @@ const CheckoutForm = ({ price, id }) => {
             return
         }
         const card = elements.getElement(CardElement);
-        console.log(card);
         if (!card) {
             return
         }

@@ -46,7 +46,6 @@ const AllUsers = () => {
     const totalPages = Math.ceil(totalUsers / userPerPage); // Calculate total pages
     const pages = [...Array(totalPages).keys()].map(i => i + 1)
     const handleSetRole = (role, id) => {
-        console.log(role, id)
         axiosSecure.patch(`/update-role/${id}`, { role })
             .then(res => {
                 if (res.data.modifiedCount) {
