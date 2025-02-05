@@ -1,6 +1,6 @@
 # Parcel Logic
 
-![Parcel Logic Application Screenshot](./image.png)
+![Parcel Logic Application Screenshot](./parcelLogic.png)
 
 **Delivering Your World, One Parcel at a Time.**
 
@@ -178,4 +178,4 @@ This application requires the following environment variables to function correc
 
 ## Screenshot
 
-![Parcel Logic Screenshot](./image.png)
+![Parcel Logic Screenshot](./parcelLogic.png)
