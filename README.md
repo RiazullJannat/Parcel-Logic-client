@@ -21,7 +21,6 @@ Parcel Logic is a web application that simplifies parcel deliveries by providing
 6. [Usage](#usage)
 7. [Environment Variables](#environment-variables)
 8. [Contributors](#contributors)
-9. [License](#license)
 
 ---
 
@@ -171,12 +170,3 @@ This application requires the following environment variables to function correc
 ## Contributors
 
 - **[Riazull Jannat](https://github.com/RiazullJannat)** - Developer and maintainer of the project.
-
----
-
-
----
-
-## Screenshot
-
-![Parcel Logic Screenshot](./parcelLogic.png)
