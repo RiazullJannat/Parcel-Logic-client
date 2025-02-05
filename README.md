@@ -1,6 +1,7 @@
 # Parcel Logic
 
-![Parcel Logic Application Screenshot](./parcelLogic.png)
+![Parcel Logic Application Screenshot]('/src/assets/parcelLogic.png')
+<!-- <image src="./src/assets/parcelLogic.png" alt="Parcel Logic Application Screenshot"/> -->
 
 **Delivering Your World, One Parcel at a Time.**
 
